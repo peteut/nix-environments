@@ -1,6 +1,7 @@
 { pkgs ? import <nixpkgs> { }
 , extraPkgs ? [ ]
 , extraPythonPkgs ? [ ]
+, shellHookPost ? ""
 }:
 
 let
@@ -116,6 +117,7 @@ let
 
         # source the config for bibake equal to --postread
         export BBPOSTCONF="${nixconf}"
+        ${shellHookPost}
       '';
   };
 in
