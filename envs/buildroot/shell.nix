@@ -56,6 +56,7 @@ in
       expect # not mentioned in buildroot deps
       file
       findutils
+      flock
       gcc
       glib # not mentioned; not sure if necessary
       glibc # transitively mentioned: debian build-essential
@@ -75,7 +76,7 @@ in
     ] ++ pkgs.linux.nativeBuildInputs ++ extraPkgs);
     runScript = ''
       # The host-uboot-tools package uses objcopy from the shells OBJCOPY var
-      # Since the var is set to OBJCOPY=objcopy the buildroot provided 
+      # Since the var is set to OBJCOPY=objcopy the buildroot provided
       # CROSS_COMPILE path is ignored hence the script is using the wrong objcopy
       unset $OBJCOPY
       exec bash
