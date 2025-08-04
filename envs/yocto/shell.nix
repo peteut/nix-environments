@@ -1,6 +1,7 @@
 { pkgs ? import <nixpkgs> { }
 , extraPkgs ? [ ]
 , extraPythonPkgs ? [ ]
+, extraPassthroughVars ? [ ]
 , shellHookPost ? ""
 }:
 
@@ -89,7 +90,7 @@ let
           (builtins.attrValues (builtins.mapAttrs (n: v: "export ${n}= \"${v}\"") setVars)) ++
           (builtins.map (v: "export ${v}") exportVars);
 
-        passthroughVars = (builtins.attrNames setVars) ++ exportVars;
+        passthroughVars = (builtins.attrNames setVars) ++ exportVars ++ extraPassthroughVars;
 
         # TODO limit export to native pkgs?
         nixconf = pkgs.writeText "nixvars.conf" ''
