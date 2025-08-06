@@ -44,7 +44,9 @@ let
       # postFixup would create symlinks for the non-unicode version but since it breaks
       # in buildFHSEnv, we just install both variants
       ncurses'
+      ncurses'.dev
       (ncurses'.override { unicodeSupport = false; })
+      (ncurses'.override { unicodeSupport = false; }).dev
       patch
       perl
       (python3.withPackages (ps: [ ps.setuptools ps.pyaml ps.websockets ] ++ extraPythonPkgs))
