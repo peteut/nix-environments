@@ -2,6 +2,7 @@
 , extraPkgs ? [ ]
 , runScript ? "bash"
 , xilinxName ? "xilinx-env"
+, shellHookPost ? ""
 }:
 
 (pkgs.buildFHSEnv {
@@ -64,5 +65,6 @@
   profile = ''
     export LC_NUMERIC="en_US.UTF-8"
     source /opt/xilinx/Vitis/*/settings64.sh
+    ${shellHookPost}
   '';
 }).env
