@@ -65,6 +65,7 @@
   profile = ''
     export LC_NUMERIC="en_US.UTF-8"
     source /opt/xilinx/Vitis/*/settings64.sh
+    export PATH=$XILINX_VIVADO/bin/unwrapped/lnx64.o:$PATH
     ${shellHookPost}
   '';
 }).env
