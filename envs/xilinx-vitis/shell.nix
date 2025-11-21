@@ -4,7 +4,6 @@
 , xilinxName ? "xilinx-env"
 , shellHookPost ? ""
 }:
-
 (pkgs.buildFHSEnv {
   name = xilinxName;
   inherit runScript;
@@ -62,8 +61,8 @@
     nettools
   ] ++ extraPkgs;
   multiPkgs = ps: [];
-  extraInstallCommands = ''
-    ln -sf ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 $out/lib64/ld-lsb-x86-64.so.3
+  extraBuildCommands = ''
+    ln -sf $out/lib64/ld-linux-x86-64.so.2 $out/lib64/ld-lsb-x86-64.so.3
   '';
   profile = ''
     export LC_NUMERIC="en_US.UTF-8"
