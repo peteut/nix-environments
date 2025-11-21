@@ -62,9 +62,13 @@
     nettools
   ] ++ extraPkgs;
   multiPkgs = ps: [];
+  extraInstallCommands = ''
+    ln -sf ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 $out/lib64/ld-lsb-x86-64.so.3
+  '';
   profile = ''
     export LC_NUMERIC="en_US.UTF-8"
     source /opt/xilinx/Vitis/*/settings64.sh
+    export PATH=$XILINX_VIVADO/bin/unwrapped/lnx64.o:$PATH
     ${shellHookPost}
   '';
 }).env
