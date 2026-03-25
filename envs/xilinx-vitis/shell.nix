@@ -25,14 +25,13 @@
     # in buildFHSEnv, we just install both variants
     ncurses'
     (ncurses'.override { unicodeSupport = false; })
-    xorg.libXext
-    xorg.libX11
-    xorg.libXrender
-    xorg.libXtst
-    xorg.libXi
-    xorg.libXft
-    xorg.libxcb
-    xorg.libxcb
+    libxext
+    libx11
+    libxrender
+    libxtst
+    libxi
+    libxft
+    libxcb
     # common requirements
     freetype
     fontconfig
