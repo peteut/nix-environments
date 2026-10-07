@@ -31,17 +31,17 @@
     (ncurses'.override { unicodeSupport = false; })
     ncurses6'
     (ncurses6'.override { unicodeSupport = false; })
-    xorg.libXext
-    xorg.libX11
-    xorg.libXrender
-    xorg.libXtst
-    xorg.libXi
-    xorg.libXft
-    xorg.libxcb
-    xorg.libXcomposite
-    xorg.libXdamage
-    xorg.libXfixes
-    xorg.libXrandr
+    libxext
+    libx11
+    libxrender
+    libxtst
+    libxi
+    libxft
+    libxcb
+    libxcomposite
+    libxdamage
+    libxfixes
+    libxrandr
     # common requirements
     freetype
     fontconfig
