@@ -89,7 +89,7 @@ let
         ];
 
         exports =
-          (builtins.attrValues (builtins.mapAttrs (n: v: "export ${n}= \"${v}\"") setVars)) ++
+          (builtins.attrValues (builtins.mapAttrs (n: v: "export ${n} = \"${v}\"") setVars)) ++
           (builtins.map (v: "export ${v}") exportVars);
 
         passthroughVars = (builtins.attrNames setVars) ++ exportVars ++ extraPassthroughVars;
